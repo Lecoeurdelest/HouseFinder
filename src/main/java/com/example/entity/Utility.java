@@ -21,7 +21,10 @@ public class Utility {
     private Long id;
     @Column(name = "utility_name")
     private String name;
-    //@Column(name = "icon_path")
+    @Column(name = "icon_path")
+    private String iconPath;
+    
+
 
 
     public Utility(String name) {
