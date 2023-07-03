@@ -19,18 +19,14 @@ public class Image {
     @Column(name = "image_id")
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
-
     @Column(name = "image_path")
     private String imagePath;
-
     @Column(name = "is_thumbnail")
     private boolean isThumbnail;
-
     public Image(String imagePath, boolean isThumbnail) {
         this.imagePath = imagePath;
         this.isThumbnail = isThumbnail;
     }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -38,7 +34,6 @@ public class Image {
         Image image = (Image) o;
         return isThumbnail == image.isThumbnail && id.equals(image.id) && imagePath.equals(image.imagePath);
     }
-
     @Override
     public int hashCode() {
         return Objects.hash(id, imagePath, isThumbnail);
