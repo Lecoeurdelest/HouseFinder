@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Set;
+
 @Entity
 @Table(name = "house")
 @Getter
@@ -24,5 +26,10 @@ public class House {
     private String type;
     @Column(name = "house_status")
     private String status;
+
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "house_utility",joinColumns = @JoinColumn(name = "house_id"), inverseJoinColumns = @JoinColumn(name = "utility_id"))
+    Set<Utility> utilities;
 
 }
