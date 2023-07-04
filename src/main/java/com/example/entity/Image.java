@@ -23,9 +23,13 @@ public class Image {
     private String imagePath;
     @Column(name = "is_thumbnail")
     private boolean isThumbnail;
+
+    @Column(name = "image_status")
+    private String status;
     public Image(String imagePath, boolean isThumbnail) {
         this.imagePath = imagePath;
         this.isThumbnail = isThumbnail;
+        this.status = "active";
     }
     @Override
     public boolean equals(Object o) {

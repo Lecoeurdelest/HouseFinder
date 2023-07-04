@@ -21,11 +21,16 @@ public class Utility {
     private Long id;
     @Column(name = "utility_name")
     private String name;
-    //@Column(name = "icon_path")
+    @Column(name = "icon_class")
+    private String iconClass;
+    @Column(name = "utility_status")
+    private String status;
 
-
-    public Utility(String name) {
+    public Utility(String name,String iconClass) {
         this.name = name;
+        this.iconClass = iconClass;
+        this.status = "active";
+
     }
 
     @Override

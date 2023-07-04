@@ -1,11 +1,10 @@
 package com.example.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
+import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -29,7 +28,6 @@ public class House {
     private String address;
     @Column(name = "house_status")
     private String status;
-
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "owner_id",nullable = false)
     private User owner;
@@ -50,6 +48,12 @@ public class House {
     private int tenantNumber;
     @Column(name = "tenant_gender")
     private String tenantGender;
+
+    //post info
+    @Column(name = "post_start_date")
+    private Date postStartDate;
+    @Column(name = "last_modified_date")
+    private Date lastModifiedDate;
 
     // utility
     @ManyToMany(fetch = FetchType.EAGER)
@@ -76,5 +80,25 @@ public class House {
     }
     public void remove(Image image){
         images.remove(image);
+    }
+
+    public House(String name, String type, double area, String address, User owner, double basePrice, double deposit, double electricPrice, double waterPrice, double wifiPrice, int tenantNumber, String tenantGender) {
+        this.name = name;
+        this.type = type;
+        this.area = area;
+        this.address = address;
+        this.owner = owner;
+        this.basePrice = basePrice;
+        this.deposit = deposit;
+        this.electricPrice = electricPrice;
+        this.waterPrice = waterPrice;
+        this.wifiPrice = wifiPrice;
+        this.tenantNumber = tenantNumber;
+        this.tenantGender = tenantGender;
+        this.status = "active";
+        //this.postStartDate = now
+        //this.lastModifiedDate = now
+        this.utilities = new HashSet<>();
+        this.images = new HashSet<>();
     }
 }
