@@ -21,10 +21,12 @@ public class Utility {
     private Long id;
     @Column(name = "utility_name")
     private String name;
+
     @Column(name = "icon_class")
     private String iconClass;
     @Column(name = "utility_status")
     private String status;
+
 
     public Utility(String name,String iconClass) {
         this.name = name;
