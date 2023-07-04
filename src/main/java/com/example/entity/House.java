@@ -96,8 +96,8 @@ public class House {
         this.tenantNumber = tenantNumber;
         this.tenantGender = tenantGender;
         this.status = "active";
-        //this.postStartDate = now
-        //this.lastModifiedDate = now
+        this.postStartDate = new Date();
+        this.lastModifiedDate = new Date();
         this.utilities = new HashSet<>();
         this.images = new HashSet<>();
     }
