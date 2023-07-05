@@ -1,13 +1,13 @@
-package com.example;
+package com.authorization;
 
-import com.example.entity.House;
-import com.example.entity.Image;
-import com.example.entity.User;
-import com.example.entity.Utility;
-import com.example.repository.HouseRepository;
-import com.example.repository.ImageRepository;
-import com.example.repository.UserRepository;
-import com.example.repository.UtilityRepository;
+import com.entity.House;
+import com.entity.Image;
+import com.entity.User;
+import com.entity.Utility;
+import com.repository.HouseRepository;
+import com.repository.ImageRepository;
+import com.repository.UserRepository;
+import com.repository.UtilityRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -16,11 +16,11 @@ import org.springframework.context.ApplicationContext;
 public class HouseFinderApplication {
 	public static void main(String[] args) {
 		ApplicationContext context = SpringApplication.run(HouseFinderApplication.class, args);
-		UserRepository userRepo = context.getBean(UserRepository.class);
-		UtilityRepository utilityRepo = context.getBean(UtilityRepository.class);
-		HouseRepository houseRepo = context.getBean(HouseRepository.class);
-		ImageRepository imageRepo = context.getBean(ImageRepository.class);
-		addData(userRepo,utilityRepo,imageRepo,houseRepo);
+//		UserRepository userRepo = context.getBean(UserRepository.class);
+//		UtilityRepository utilityRepo = context.getBean(UtilityRepository.class);
+//		HouseRepository houseRepo = context.getBean(HouseRepository.class);
+//		ImageRepository imageRepo = context.getBean(ImageRepository.class);
+//		addData(userRepo,utilityRepo,imageRepo,houseRepo);
 	}
 	public static void addData(UserRepository userRepo, UtilityRepository utilityRepo, ImageRepository imageRepo,HouseRepository houseRepo){
 		addUsers(userRepo);
