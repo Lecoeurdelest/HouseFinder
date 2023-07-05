@@ -22,7 +22,7 @@ public class User {
     private Long id;
 
     // account info
-    private String username;
+    private String userName;
     private String password;
     private String role;
     private String status;
@@ -36,14 +36,14 @@ public class User {
     @OneToMany(mappedBy = "owner")
     private Set<House> houses;
 
-    public User(String username, String password, String role, String email, String phone, String gender) {
-        this.username = username;
+    public User(String username, String password, String email, String phone, String gender) {
+        this.userName = username;
         this.password = password;
-        this.role = role;
+        this.role = "USER";
         this.email = email;
         this.phone = phone;
         this.gender = gender;
-        this.status = "active";
+        this.status = "inactive";
         houses = new HashSet<>();
     }
 }
