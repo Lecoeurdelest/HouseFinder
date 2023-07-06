@@ -1,8 +1,8 @@
-package com.controller;
+package com.housefinder.controller;
 
-import com.dto.UserDto;
-import com.entity.User;
-import com.service.UserService;
+import com.housefinder.entity.User;
+import com.housefinder.dto.UserDto;
+import com.housefinder.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -12,9 +12,20 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
-public class Register {
+public class AuthController {
 
     private UserService userService;
+
+
+    @GetMapping("/home")
+    public String home(){
+        return "home";
+    }
+
+    @GetMapping("/login")
+    public String login(){
+        return "login";
+    }
 
     @PostMapping("/register/save")
     public String processRegister(@Validated @ModelAttribute("user") UserDto userDto,

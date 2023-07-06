@@ -1,6 +1,6 @@
-package com.repository;
+package com.housefinder.repository;
 
-import com.entity.Image;
+import com.housefinder.entity.Image;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,4 +1,4 @@
-package com.entity;
+package com.housefinder.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

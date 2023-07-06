@@ -1,8 +1,8 @@
-package com.service;
+package com.housefinder.service;
 
-import com.dto.UserDto;
-import com.entity.User;
-import com.repository.UserRepository;
+import com.housefinder.entity.User;
+import com.housefinder.dto.UserDto;
+import com.housefinder.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

@@ -1,7 +1,7 @@
-package com.service;
+package com.housefinder.service;
 
-import com.dto.UserDto;
-import com.entity.User;
+import com.housefinder.entity.User;
+import com.housefinder.dto.UserDto;
 
 import java.util.List;
 

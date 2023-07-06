@@ -1,4 +1,4 @@
-package com.security;
+package com.housefinder.configure;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -12,15 +12,16 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 
+
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig {
 
     @Autowired
-    public UserDetailsService userDetailsService;
+    private UserDetailsService userDetailsService;
 
     @Bean
-    private BCryptPasswordEncoder passwordEncoder(){
+    public static BCryptPasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }
 
@@ -29,9 +30,9 @@ public class WebSecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(authorize ->
-                        authorize.requestMatchers("/home").hasRole("USER")
-                                .requestMatchers("/login").permitAll()
-                                .requestMatchers("/register").permitAll()
+                        authorize.requestMatchers("/register/**").permitAll()
+                                .requestMatchers("/home").permitAll()
+                                .requestMatchers("/users").hasRole("ADMIN")
                 ).formLogin(
                         form -> form
                                 .loginPage("/login")

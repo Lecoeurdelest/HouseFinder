@@ -1,5 +1,6 @@
-package com.application;
+package com.housefinder;
 
+import com.housefinder.repository.HouseRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -8,7 +9,6 @@ import org.springframework.context.ApplicationContext;
 public class HouseFinderApplication {
 	public static void main(String[] args) {
 		ApplicationContext context = SpringApplication.run(HouseFinderApplication.class, args);
-
 	}
 
 }
