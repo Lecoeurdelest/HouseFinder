@@ -18,7 +18,6 @@ public class House {
     @Column(name = "house_id")
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
-
     // house info
     @Column(name = "house_name")
     private String name;
@@ -32,6 +31,8 @@ public class House {
     @JoinColumn(name = "owner_id",nullable = false)
     private User owner;
 
+    @OneToMany(mappedBy = "house")
+    private Set<Renting> rentings;
     // price info
     @Column(name = "base_price")
     private double basePrice;
@@ -100,5 +101,6 @@ public class House {
         this.lastModifiedDate = new Date();
         this.utilities = new HashSet<>();
         this.images = new HashSet<>();
+        this.rentings = new HashSet<>();
     }
 }
