@@ -10,6 +10,8 @@ public interface UserService {
 
     User findByEmail(String email);
 
+    void forgotPassword(String email);
+
     List<UserDto> findAllUser();
 
 }

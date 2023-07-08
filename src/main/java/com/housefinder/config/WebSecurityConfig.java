@@ -1,4 +1,4 @@
-package com.housefinder.configure;
+package com.housefinder.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -30,18 +30,18 @@ public class WebSecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(authorize ->
-                        authorize.requestMatchers("/register/**").permitAll()
-                                .requestMatchers("/home").permitAll()
-                                .requestMatchers("/users").hasRole("ADMIN")
+                        authorize
+                                .requestMatchers("/admin").hasRole("ADMIN")
+                                .anyRequest().permitAll()
                 ).formLogin(
                         form -> form
                                 .loginPage("/login")
                                 .loginProcessingUrl("/login")
-                                .defaultSuccessUrl("/home")
+                                .defaultSuccessUrl("redirect:/home")
                                 .permitAll()
                 ).logout(
                         logout -> logout
-                                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                                .logoutRequestMatcher(new AntPathRequestMatcher("redirect:/logout"))
                                 .permitAll()
                 );
         return http.build();
