@@ -6,7 +6,10 @@ import com.housefinder.entity.User;
 import com.housefinder.entity.Utility;
 import com.housefinder.service.HouseService;
 import org.springframework.beans.factory.annotation.Autowired;
+<<<<<<< HEAD
 import org.springframework.data.domain.Page;
+=======
+>>>>>>> cd5367b80803b3d0ca136032197872964e7a600f
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
