@@ -27,7 +27,7 @@ public class HouseFinderApplication {
 		ImageRepository imageRepo = context.getBean(ImageRepository.class);
 		HouseRepository houseRepo = context.getBean(HouseRepository.class);
 
-		addData(userRepo, utilityRepo, imageRepo, houseRepo);
+//		addData(userRepo, utilityRepo, imageRepo, houseRepo);
 	}
 	public static void addData(UserRepository userRepo, UtilityRepository utilityRepo, ImageRepository imageRepo, HouseRepository houseRepo){
 		addUser(userRepo);
