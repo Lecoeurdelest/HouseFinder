@@ -11,11 +11,9 @@ public class HouseController {
 
     private HouseService houseService;
 
+
     @GetMapping("/house/{pageNumber}")
     public HouseDto getHouseDto(@PathVariable int pageNumber){
         return null;
     }
-
-
-
 }

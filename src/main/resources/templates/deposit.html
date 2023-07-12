@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.0.js"
+            integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+    <script src="../static/js/script.js"></script>
+</head>
+<body>
+<nav></nav>
+
+<div class="container p-5">
+    <div class="title my-4 border-bottom"><h3>Deposit Reservation</h3></div>
+    <div class="section d-flex justify-content-start">
+        <div class="row">
+            <div class="left mr-5 w-50 col">
+                <!-- <h4>Deposit Reservation</h4> -->
+                <form id="formDeposit" th:object="" method="post">
+                    <div class="form-group">
+                        <label for="address">Address:</label>
+                        <input type="text" class="form-control" id="address" name="address" value="173 Pham Hung Street, Trung Hoa Ward, Cau Giay District, Hanoi" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="fullname">Full Name:</label>
+                        <input type="text" class="form-control" id="fullname" name="fullname" value="Tran Ngoc Quy (K16_HL)" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number:</label>
+                        <input type="text" class="form-control" id="phone" name="phone">
+                        <small id="phoneError" class="text-danger"></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="move-in-date">Move-in Date:</label>
+                        <input type="date" class="form-control" id="move-in-date" name="moveInDate">
+                        <small id="moveInDateError" class="text-danger"></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="booking-fee">Booking Fee:</label>
+                        <input type="text" class="form-control" id="booking-fee" name="bookingFee" value="5,500,000 VND" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="contract-duration">Contract Duration:</label>
+                        <input type="text" class="form-control" id="contract-duration" name="contractDuration" value="6 months" readonly>
+                    </div>
+                    <div class="form-group border border-warning rounded px-2 py-1">
+                        <p class="">Note</p>
+                        <p>
+                            - Ohana recommends discussing the reservation details with the landlord to verify the information. <br>
+                            - This amount is only the booking fee, the tenant will pay the remaining amount after signing the contract with the landlord. <br>
+                            - In case the tenant has not fully paid the landlord by the move-in date, Ohana will transfer the booking fee to the landlord.
+                        </p>
+                    </div>
+                    <button type="submit" class="btn btn-primary mb-4">Pay</button>
+                </form>
+            </div>
+            <div class="right border border-secondary-subtle rounded p-4 w-50 h-50 col">
+                <div class="title d-flex justify-content-start pb-4 border-bottom">
+                    <div class="image pr-4">
+                        <img src="https://a0.muscache.com/im/pictures/6b6e26ba-2db8-49d3-9b6e-3fdd6a35f86b.jpg?aki_policy=large" alt="" width="180pxpx">
+                    </div>
+                    <div class="content">
+                        <div class="top">
+                            <p class="m-0">Entire rental unit</p>
+                            <p class="mt-1">Lahome Da nang Apartment (2 bed) green tree inside</p>
+                        </div>
+                        <div class="bottom">
+                            <span><i class="fa fa-star" aria-hidden="true"></i></span>
+                            <span>5.00</span>
+                            <span>(1 review)</span>
+                        </div>
+                    </div>
+                </div>
+                <h4 class="py-4">Price details</h4>
+                <div class="section">
+                    <div class="price d-flex justify-content-between mb-3">
+                        <div class="details">$45.67 x 3 nights</div>
+                        <div class="total"><span>$137.01</span></div>
+                    </div>
+                    <div class="fee d-flex justify-content-between mb-4">
+                        <div class="details">Airbnb service fee</div>
+                        <div class="total"><span>$19.34</span></div>
+                    </div>
+                    <div class="border border-1 border-secondary-subtle mb-4"></div>
+                    <div class="totalMoney d-flex justify-content-between">
+                        <div class="details font-weight-bold">
+                            Total (USD)</div>
+                        <div class="total font-weight-bold"><span>$156.35</span></div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
