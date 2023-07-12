@@ -19,17 +19,8 @@ public class HouseServiceImpl implements HouseService {
 @Autowired
     private HouseRepository houseRepository;
     @Override
-    public List<HouseDto> getAllHouse() {
-        List<House> houses = houseRepository.findAll();
-        return houses.stream().map(
-                this::mapToHouseDto).
-                collect(Collectors.toList());
-    }
-
-    @Override
-    public HouseDto getHouseById(Long id) {
-        House house = houseRepository.getReferenceById(id);
-        return mapToHouseDto(house);
+    public House getHouseById(Long id) {
+        return houseRepository.findById(id).get();
     }
 
     @Override
@@ -37,26 +28,6 @@ public class HouseServiceImpl implements HouseService {
         List<House> houses = houseRepository.findAll();
         return houses.stream().filter(house -> house.getStatus().equalsIgnoreCase("active")).collect(Collectors.toList());
     }
-
-    private HouseDto mapToHouseDto(House house) {
-        HouseDto houseDto = new HouseDto();
-        houseDto.setId(house.getId());
-        houseDto.setName(house.getName());
-        houseDto.setType(house.getType());
-        houseDto.setArea(house.getArea());
-        houseDto.setAddress(house.getAddress());
-        houseDto.setStatus(house.getStatus());
-        houseDto.setOwner(house.getOwner());
-        houseDto.setBasePrice(house.getBasePrice());
-        houseDto.setDeposit(house.getDeposit());
-        houseDto.setElectricPrice(house.getElectricPrice());
-        houseDto.setWaterPrice(house.getWaterPrice());
-        houseDto.setWifiPrice(house.getWifiPrice());
-        houseDto.setUtilities(new HashSet<>(house.getUtilities()));
-        houseDto.setImages(new HashSet<>(house.getImages()));
-        return houseDto;
-    }
-
 
     public Page<House> getHouse(int pageNumber){
         int pageSize = 6;

@@ -6,7 +6,6 @@ import com.housefinder.entity.House;
 import java.util.List;
 
 public interface HouseService {
-    List<HouseDto> getAllHouse();
-    HouseDto getHouseById(Long id);
+    House getHouseById(Long id);
     List<House> getActiveHouses();
 }
