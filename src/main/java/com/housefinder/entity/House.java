@@ -3,6 +3,7 @@ package com.housefinder.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.text.DecimalFormat;
 import java.util.HashSet;
 import java.util.Set;
 
