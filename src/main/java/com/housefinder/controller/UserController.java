@@ -16,13 +16,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class UserController {
 
     private UserService userService;
-
-
-    @GetMapping({"/", "/home"})
-    public String home() {
-        return "home";
-    }
-
     @GetMapping("/login")
     public String login() {
         return "login";

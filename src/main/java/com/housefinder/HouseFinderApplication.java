@@ -26,8 +26,8 @@ public class HouseFinderApplication {
 		UtilityRepository utilityRepo = context.getBean(UtilityRepository.class);
 		ImageRepository imageRepo = context.getBean(ImageRepository.class);
 		HouseRepository houseRepo = context.getBean(HouseRepository.class);
-	}
-    public void addData(UserRepository userRepo, UtilityRepository utilityRepo) {
+
+		addData(userRepo, utilityRepo, imageRepo, houseRepo);
 	}
 	public static void addData(UserRepository userRepo, UtilityRepository utilityRepo, ImageRepository imageRepo, HouseRepository houseRepo){
 		addUser(userRepo);
@@ -36,6 +36,13 @@ public class HouseFinderApplication {
 		addHouse(userRepo, utilityRepo, imageRepo, houseRepo);
 	}
 	private static void addUser(UserRepository userRepo){
+		User landlord = new User("landlord1", "123", "landlord1@gmail.com","111111111","male");
+		User tenant1 = new User("tenant1", "123", "tenant1@gmail.com","222222222","male");
+		User tenant2 = new User();
+		tenant2.setUserName("tenant2");
+		userRepo.save(landlord);
+		userRepo.save(tenant1);
+		userRepo.save(tenant2);
 	}
 	private static void addUtility(UtilityRepository utilityRepo){
 		utilityRepo.save(new Utility("AirConditioner",""));
@@ -278,7 +285,7 @@ public class HouseFinderApplication {
 		Image i6h12 = imageRepo.findById(59L).get();
 
 		//house 1
-		House BacKhuong = new House("Tro Bac Khương", "Apartment", 20, "Thôn 4, Thạch Hòa, Thạch Thất, Hà Nội", landlord, 2000000, 2000000, 3000, 50000,100000, 2, "Male/Female");
+		House BacKhuong = new House("Tro bac Khuong", "Apartment", 20, "Thon 4", landlord, 2000000, 2000000, 3000, 50000,100000, 2, "Male/Female");
 		BacKhuong.add(AirConditioner);
 		BacKhuong.add(Desk);
 		BacKhuong.add(WaterHeater);
