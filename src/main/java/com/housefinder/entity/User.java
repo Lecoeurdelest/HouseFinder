@@ -36,6 +36,9 @@ public class User {
     @OneToMany(mappedBy = "owner")
     private Set<House> houses;
 
+    @OneToMany(mappedBy = "tenant")
+    private Set<Renting> rentings;
+
     public User(String username, String password, String email, String phone, String gender) {
         this.userName = username;
         this.password = password;
@@ -45,5 +48,6 @@ public class User {
         this.gender = gender;
         this.status = "inactive";
         houses = new HashSet<>();
+        rentings = new HashSet<>();
     }
 }

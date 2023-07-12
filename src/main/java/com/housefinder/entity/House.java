@@ -3,7 +3,6 @@ package com.housefinder.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -18,7 +17,6 @@ public class House {
     @Column(name = "house_id")
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
-
     // house info
     @Column(name = "house_name")
     private String name;
@@ -32,6 +30,8 @@ public class House {
     @JoinColumn(name = "owner_id",nullable = false)
     private User owner;
 
+    @OneToMany(mappedBy = "house")
+    private Set<Renting> rentings;
     // price info
     @Column(name = "base_price")
     private double basePrice;
@@ -49,11 +49,6 @@ public class House {
     @Column(name = "tenant_gender")
     private String tenantGender;
 
-    //post info
-    @Column(name = "post_start_date")
-    private Date postStartDate;
-    @Column(name = "last_modified_date")
-    private Date lastModifiedDate;
 
     // utility
     @ManyToMany(fetch = FetchType.EAGER)
@@ -82,7 +77,8 @@ public class House {
         images.remove(image);
     }
 
-    public House(String name, String type, double area, String address, User owner, double basePrice, double deposit, double electricPrice, double waterPrice, double wifiPrice, int tenantNumber, String tenantGender) {
+    public House(String name, String type, double area, String address, User owner, double basePrice, double deposit
+            , double electricPrice, double waterPrice, double wifiPrice, int tenantNumber, String tenantGender) {
         this.name = name;
         this.type = type;
         this.area = area;
@@ -96,9 +92,8 @@ public class House {
         this.tenantNumber = tenantNumber;
         this.tenantGender = tenantGender;
         this.status = "active";
-        this.postStartDate = new Date();
-        this.lastModifiedDate = new Date();
         this.utilities = new HashSet<>();
         this.images = new HashSet<>();
+        this.rentings = new HashSet<>();
     }
 }

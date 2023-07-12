@@ -1,0 +1,283 @@
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.main-image {
+    margin-bottom: 2rem;
+}
+
+.main-image-room {
+    height: 500px;
+    display: -ms-flexbox;
+    display: flex;
+    cursor: pointer;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.image-room1 {
+    flex: 1 1;
+    border-right: 1px solid #fff;
+}
+
+.image-room2 {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1;
+    border-left: 1px solid #fff;
+}
+
+.spec-image-room1 {
+    height: 50%;
+    -ms-flex: 1 1;
+    flex: 1 1;
+    border-bottom: 1px solid #fff;
+}
+
+.spec-image-room2 {
+    height: 50%;
+    flex: 1 1;
+    border-top: 1px solid #fff;
+}
+
+.spec-image {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+
+.room_title_heading {
+    flex-basis: 700px;
+
+}
+
+.room_title_box {
+    padding: 8px 16px;
+    background: #4877F8;
+    color: #fff;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.room_title_box:hover {
+    opacity: .7;
+}
+
+.room_info {
+    display: flex;
+    margin-top: 30px;
+}
+
+.left_info {
+    flex-basis: 800px;
+}
+
+
+.spec_room_info {
+    background-color: #fff;
+    padding: 20px 30px 30px 30px;
+    border-radius: 30px;
+}
+
+.spec_room_info:not(:first-child) {
+    margin-top: 40px;
+}
+
+.spec_room_info_heading h3 {
+    margin: 0;
+}
+
+.spec_room_info_heading {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    background-color: #F6F5F2;
+    width: fit-content;
+    padding: 0.125rem 1rem .125rem .125rem;
+    border-radius: 30px;
+
+}
+
+.icon-house-s {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    margin-right: 10px;
+}
+
+.first_spec_room {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-top: 24px;
+    justify-content: flex-start;
+}
+
+.spec_room_details {
+    width: calc(100%/4);
+}
+
+.spec_room_details>p:first-child {
+    text-transform: uppercase;
+    line-height: 24px;
+}
+
+.spec_room_details>p:last-child {
+    line-height: 24px;
+    color: rgba(0, 0, 0, .7);
+    font-size: 16px;
+}
+
+.details_address {
+    display: flex;
+    width: 100%;
+}
+
+.details__address {
+    width: 100%;
+
+}
+
+.right_info {
+    background-color: #fff;
+    padding: 20px 30px 30px 30px;
+    border-radius: 30px;
+    margin-left: 30px;
+    flex: 1 1;
+    height: fit-content;
+}
+
+.user__icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
+    color: #4877F8;
+}
+
+.user-post {
+    margin-top: 24px;
+}
+
+.user_post {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.user_avatar {
+    margin-right: 20px;
+}
+
+.user_avatar_image {
+    object-fit: cover;
+    border-radius: 9999px;
+    width: 60px;
+    height: 60px;
+}
+
+.user_information>p:last-child {
+    line-height: 24px;
+    color: rgba(0, 0, 0, .7);
+    font-size: 14px;
+}
+
+.public_date {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.public_date>p {
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.feature_room {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.feature_room_details {
+    margin-top: 24px;
+    width: calc(100%/4);
+}
+
+.fa-exclamation {
+    color: red;
+}
+
+.note-rooms {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.note_rooms_details {
+    flex: 1 1;
+}
+
+.sizes {
+    line-height: 24px;
+    font-size: 14px;
+    color: rgba(0, 0, 0, .7);
+    margin-bottom: 10px;
+
+}
+
+.th {
+    margin-right: 14px;
+    padding: 8px 5px;
+    border-radius: .5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.bg-size1 {
+    background: #0F88A1;
+
+}
+
+.bg-size2 {
+    background: #1EDB4C;
+}
+
+.bg-size3 {
+    background: #FFAB1D;
+}
+
+.description_prev {
+    margin: 0;
+    padding-top: 24px;
+    font-family: 'Nunito-Regular', sans-serif;
+    font-size: 16px;
+    color: #333333;
+    letter-spacing: 0;
+    white-space: pre-wrap;
+}
+
+@media (max-width: 992px) {
+    .room_info {
+       flex-direction: column-reverse;
+    }
+    .right_info {
+        margin-left: 0;
+        margin-bottom: 40px;
+    }
+
+}
