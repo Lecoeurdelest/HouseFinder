@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -8,11 +8,11 @@
     <!-- cdn boostrap-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
           integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
     <!-- cdn fown awe some-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
           integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-          crossorigin="anonymous" referrerpolicy="no-referrer" />
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <!-- fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,7 +27,7 @@
 <header class="sticky-top header">
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-            <a class="navbar-brand" href="/"><img src="../static/image.screen/logo.svg" alt="Logo"></a>
+            <a class="navbar-brand" href="/"><img th:src="@{/image.screen/logo.svg}" alt="Logo"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -61,7 +61,7 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link text-white fw-bold fs-5 hv-underline" aria-current="page"
-                           href="#">Blog</a>
+                           th:href="@{/blog-list}">Blog</a>
                     </li>
                     <li class="nav-item ps-xl-3">
                         <a class="nav-link text-white fw-bold fs-5 hv-underline" href="#">Đăng phòng</a>
@@ -73,7 +73,7 @@
 </header>
 <div class="slide_fixed mb-5">
     <div class="image-block">
-        <img class="image-spec" src="../static/image.screen/slide.jpg" alt="#">
+        <img class="image-spec" th:src="@{/image.screen/slide.jpg}" alt="#">
     </div>
     <div class="slide_description">
         <div class="container slide__description">
@@ -82,8 +82,9 @@
             <div>
                 <p class="text-white fw-bold fs-3 pb-3">Tải app ngay để có trải ngiệm tuyệt vời!</p>
                 <div>
-                    <a href="#"><img src="../static/image.screen/googlePlay.png" alt="Google Play" width="150" height="50"></a>
-                    <a href="#" class="ps-3"><img src="../static/image.screen/appstore.png" alt="AppStore" width="150"
+                    <a href="#"><img th:src="@{/image.screen/googlePlay.png}" alt="Google Play" width="150"
+                                     height="50"></a>
+                    <a href="#" class="ps-3"><img th:src="@{/image.screen/appstore.png}" alt="AppStore" width="150"
                                                   height="50"></a>
                 </div>
             </div>
@@ -95,35 +96,40 @@
         <h3 class="text-black fs-1 fw-bold pb-xl-4 pb-sm-3">Xu hướng tìm kiếm</h3>
         <ul class="list-district">
             <li class="list-district-items">
-                <a class="list-district-link" href="#"><img class="list-district-img" src="../static/image.screen/haibatrung.jpg"
+                <a class="list-district-link" href="#"><img class="list-district-img"
+                                                            th:src="@{/image.screen/haibatrung.jpg}"
                                                             alt="Hai Bà Trưng"></a>
                 <div class="district-description">
                     <p>Hai Bà Trưng</p>
                 </div>
             </li>
             <li class="list-district-items">
-                <a class="list-district-link" href="#"><img class="list-district-img" src="../static/image.screen/caugiay.jpg"
+                <a class="list-district-link" href="#"><img class="list-district-img"
+                                                            th:src="@{/image.screen/caugiay.jpg}"
                                                             alt="Cầu Giấy"></a>
                 <div class="district-description">
                     <p>Cầu Giấy</p>
                 </div>
             </li>
             <li class="list-district-items">
-                <a class="list-district-link" href="#"><img class="list-district-img" src="../static/image.screen/dongda.jpg"
+                <a class="list-district-link" href="#"><img class="list-district-img"
+                                                            th:src="@{/image.screen/dongda.jpg}"
                                                             alt="Đống Đa"></a>
                 <div class="district-description">
                     <p>Đống Đa</p>
                 </div>
             </li>
             <li class="list-district-items">
-                <a class="list-district-link" href="#"><img class="list-district-img" src="../static/image.screen/namtuliem.jpg"
+                <a class="list-district-link" href="#"><img class="list-district-img"
+                                                            th:src="@{/image.screen/namtuliem.jpg}"
                                                             alt="Nam Từ Liêm"></a>
                 <div class="district-description">
                     <p>Nam Từ Liêm</p>
                 </div>
             </li>
             <li class="list-district-items">
-                <a class="list-district-link" href="#"><img class="list-district-img" src="../static/image.screen/hoangmai.jpg"
+                <a class="list-district-link" href="#"><img class="list-district-img"
+                                                            th:src="@{/image.screen/hoangmai.jpg}"
                                                             alt="Hoàng Mai"></a>
                 <div class="district-description">
                     <p>Hoàng Mai</p>
@@ -138,206 +144,51 @@
         <div class="not-verify bg-white list-room p-4">
             <div class="d-flex align-item-center justify-content-between mb-xl-4 mb-sm-3">
                 <h3 class="text-black fs-2 fw-bold">Phòng mới nhất</h3>
-                <a class="view_all" href="#">
+                <a class="view_all" th:href="@{/houselist/{pageNumber}(pageNumber=0)}">
                     <div class="view-all">
                         <span>Xem tất cả</span>
                     </div>
                 </a>
             </div>
             <ul class="room-items">
-                <li class="room__items d-flex justify-content-between g-1">
+                <li th:each="house: ${houses}" class="room__items d-flex justify-content-between g-1">
                     <div class="room__items-img">
-                        <img src="../static/image.screen/room.JPG" alt="Room">
+                        <img th:src="@{'images/house/' + ${house.id} + '/img1.png'}" alt="Room">
                     </div>
                     <div class="room__items-descrition">
                         <a href="#">
-                            <h4 class="room_heading">Phòng cho thuê Đường Phạm Hùng, Quận Cầu Giấy</h4>
+                            <h4 class="room_heading" th:text="${house.name}"/>
                         </a>
                         <div class="room_spec">
                             <div class="room_spec_title">
                                 <div class="d-flex align-items-center my-1">
                                     <i class="fa-solid fa-house me-2 text-sub"></i>
-                                    <p class="text-sub">Phòng cho thuê</p>
+                                    <p class="text-sub" th:text="${house.type}"/>
                                 </div>
                                 <div class="gender-type-room">
                                     <div class="d-flex align-items-center my-1">
                                         <i class="fa-solid fa-person me_2 text-sub"></i>
-                                        <p class="text-sub">Nam & Nữ</p>
+                                        <p class="text-sub" th:text="${house.tenantGender}"/>
                                     </div>
                                     <div class="d-flex align-items-center my-1">
                                         <i class="fa-solid fa-ruler me_3 text-sub"></i>
-                                        <p class="text-sub">35m<sup>2</sup></p>
+                                        <p class="text-sub"><a th:text="${house.area} + m"/><sup>2</sup></p>
                                     </div>
                                     <div class="d-flex align-items-center my-1">
                                         <i class="fa-solid fa-location-dot me_4 text-sub"></i>
-                                        <p class="text-sub">173 Đường Phạm Hùng, Phường Trung Hoà, Quận Cầu Giấy, Hà
-                                            Nội
-                                        </p>
+                                        <p class="text-sub" th:text="${house.address}"/>
                                     </div>
                                 </div>
                             </div>
                             <div class="room_price">
-                                <span>5</span>
+                                <span th:text="${house.basePrice} / 1000000"/>
                                 <span>tr/phòng</span>
                             </div>
                         </div>
                     </div>
                 </li>
-                <li class="room__items d-flex justify-content-between g-1">
-                    <div class="room__items-img">
-                        <img src="../static/image.screen/room.JPG" alt="Room">
-                    </div>
-                    <div class="room__items-descrition">
-                        <a href="#">
-                            <h4 class="room_heading">Phòng cho thuê Đường Phạm Hùng, Quận Cầu Giấy</h4>
-                        </a>
-                        <div class="room_spec">
-                            <div class="room_spec_title">
-                                <div class="d-flex align-items-center my-1">
-                                    <i class="fa-solid fa-house me-2 text-sub"></i>
-                                    <p class="text-sub">Phòng cho thuê</p>
-                                </div>
-                                <div class="gender-type-room">
-                                    <div class="d-flex align-items-center my-1">
-                                        <i class="fa-solid fa-person me_2 text-sub"></i>
-                                        <p class="text-sub">Nam & Nữ</p>
-                                    </div>
-                                    <div class="d-flex align-items-center my-1">
-                                        <i class="fa-solid fa-ruler me_3 text-sub"></i>
-                                        <p class="text-sub">35m<sup>2</sup></p>
-                                    </div>
-                                    <div class="d-flex align-items-center my-1">
-                                        <i class="fa-solid fa-location-dot me_4 text-sub"></i>
-                                        <p class="text-sub">173 Đường Phạm Hùng, Phường Trung Hoà, Quận Cầu Giấy, Hà
-                                            Nội
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="room_price">
-                                <span>5</span>
-                                <span>tr/phòng</span>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="room__items d-flex justify-content-between g-1">
-                    <div class="room__items-img">
-                        <img src="../static/image.screen/room.JPG" alt="Room">
-                    </div>
-                    <div class="room__items-descrition">
-                        <a href="#">
-                            <h4 class="room_heading">Phòng cho thuê Đường Phạm Hùng, Quận Cầu Giấy</h4>
-                        </a>
-                        <div class="room_spec">
-                            <div class="room_spec_title">
-                                <div class="d-flex align-items-center my-1">
-                                    <i class="fa-solid fa-house me-2 text-sub"></i>
-                                    <p class="text-sub">Phòng cho thuê</p>
-                                </div>
-                                <div class="gender-type-room">
-                                    <div class="d-flex align-items-center my-1">
-                                        <i class="fa-solid fa-person me_2 text-sub"></i>
-                                        <p class="text-sub">Nam & Nữ</p>
-                                    </div>
-                                    <div class="d-flex align-items-center my-1">
-                                        <i class="fa-solid fa-ruler me_3 text-sub"></i>
-                                        <p class="text-sub">35m<sup>2</sup></p>
-                                    </div>
-                                    <div class="d-flex align-items-center my-1">
-                                        <i class="fa-solid fa-location-dot me_4 text-sub"></i>
-                                        <p class="text-sub">173 Đường Phạm Hùng, Phường Trung Hoà, Quận Cầu Giấy, Hà
-                                            Nội
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="room_price">
-                                <span>5</span>
-                                <span>tr/phòng</span>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="room__items d-flex justify-content-between g-1">
-                    <div class="room__items-img">
-                        <img src="../static/image.screen/room.JPG" alt="Room">
-                    </div>
-                    <div class="room__items-descrition">
-                        <a href="#">
-                            <h4 class="room_heading">Phòng cho thuê Đường Phạm Hùng, Quận Cầu Giấy</h4>
-                        </a>
-                        <div class="room_spec">
-                            <div class="room_spec_title">
-                                <div class="d-flex align-items-center my-1">
-                                    <i class="fa-solid fa-house me-2 text-sub"></i>
-                                    <p class="text-sub">Phòng cho thuê</p>
-                                </div>
-                                <div class="gender-type-room">
-                                    <div class="d-flex align-items-center my-1">
-                                        <i class="fa-solid fa-person me_2 text-sub"></i>
-                                        <p class="text-sub">Nam & Nữ</p>
-                                    </div>
-                                    <div class="d-flex align-items-center my-1">
-                                        <i class="fa-solid fa-ruler me_3 text-sub"></i>
-                                        <p class="text-sub">35m<sup>2</sup></p>
-                                    </div>
-                                    <div class="d-flex align-items-center my-1">
-                                        <i class="fa-solid fa-location-dot me_4 text-sub"></i>
-                                        <p class="text-sub">173 Đường Phạm Hùng, Phường Trung Hoà, Quận Cầu Giấy, Hà
-                                            Nội
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="room_price">
-                                <span>5</span>
-                                <span>tr/phòng</span>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="room__items d-flex justify-content-between g-1">
-                    <div class="room__items-img">
-                        <img src="../static/image.screen/room.JPG" alt="Room">
-                    </div>
-                    <div class="room__items-descrition">
-                        <a href="#">
-                            <h4 class="room_heading">Phòng cho thuê Đường Phạm Hùng, Quận Cầu Giấy</h4>
-                        </a>
-                        <div class="room_spec">
-                            <div class="room_spec_title">
-                                <div class="d-flex align-items-center my-1">
-                                    <i class="fa-solid fa-house me-2 text-sub"></i>
-                                    <p class="text-sub">Phòng cho thuê</p>
-                                </div>
-                                <div class="gender-type-room">
-                                    <div class="d-flex align-items-center my-1">
-                                        <i class="fa-solid fa-person me_2 text-sub"></i>
-                                        <p class="text-sub">Nam & Nữ</p>
-                                    </div>
-                                    <div class="d-flex align-items-center my-1">
-                                        <i class="fa-solid fa-ruler me_3 text-sub"></i>
-                                        <p class="text-sub">35m<sup>2</sup></p>
-                                    </div>
-                                    <div class="d-flex align-items-center my-1">
-                                        <i class="fa-solid fa-location-dot me_4 text-sub"></i>
-                                        <p class="text-sub">173 Đường Phạm Hùng, Phường Trung Hoà, Quận Cầu Giấy, Hà
-                                            Nội
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="room_price">
-                                <span>5</span>
-                                <span>tr/phòng</span>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-
             </ul>
-            <a class="view_all_end" href="#">
+            <a class="view_all_end" th:href="@{/houselist/{pageNumber}(pageNumber=0)}">
                 <div class="view-all-end">
                     <span>Xem tất cả</span>
                 </div>
@@ -349,7 +200,7 @@
                     <i class="fa-solid fa-circle-check me-2" style="color: #4877f8"></i>
                     <h3 class="fs-4 heading-verified fw-bold">Đã xác thực</h3>
                 </div>
-                <a class="view_all" href="#">
+                <a class="view_all" th:href="#">
                     <div class="view-all hidden-viewall">
                         <span>Xem tất cả</span>
                     </div>
@@ -367,11 +218,11 @@
     <div class="container">
         <div class="last-logo d-flex justify-content-between align-items-center py-4">
             <div>
-                <img src="../static/image.screen/footer-logo.svg" alt="Footer Logo">
+                <img th:src="@{/image.screen/footer-logo.svg}" alt="Footer Logo">
             </div>
             <div>
-                <img class="me-3 ggp" src="../static/image.screen/appstore.png" alt="appstore" width="150" height="60">
-                <img class="ggp" src="../static/image.screen/googlePlay.png" alt="googlePlay" width="150" height="60">
+                <img class="me-3 ggp" th:src="@{/image.screen/appstore.png}" alt="appstore" width="150" height="60">
+                <img class="ggp" th:src="@{/image.screen/googlePlay.png}" alt="googlePlay" width="150" height="60">
             </div>
         </div>
         <div class="d-flex justify-content-between align-items-center py-3">
@@ -390,7 +241,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"
         integrity="sha512-3dZ9wIrMMij8rOH7X3kLfXAzwtcHpuYpEgQg1OA4QAob1e81H8ntUQmQm3pBudqIoySO5j0tHN4ENzA6+n2r4w=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script type="text/javascript" src="/js/script.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
 </body>
 
 </html>

@@ -1,484 +1,339 @@
 <!DOCTYPE html>
-<html lang="en"
-      xmlns:th="http://www.thymeleaf.org"
->
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- cdn boostrap-->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="../static/css/style.css">
-  <link rel="stylesheet" type="text/css" href="../static/css/list.css">
-  <!-- cdn fown awe some-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <!-- fonts-->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap" rel="stylesheet">
-  <title>Ohana</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- cdn boostrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+          integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/list.css}">
+    <!-- cdn fown awe some-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <!-- fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+    <title>Ohana</title>
 </head>
 
 <body>
 <div class="d-block px-3 py-2 text-center text-bold skippy">
-  <a href="/" class="text-white text-decoration-none">Để đăng phòng, mời bạn tải ứng dụng OHANA.</a>
+    <a href="/" class="text-white text-decoration-none">Để đăng phòng, mời bạn tải ứng dụng OHANA.</a>
 </div>
 <header class="sticky-top">
-  <nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container">
-      <a class="navbar-brand" href="/"><img src="../static/image.screen/logo.svg" alt="Logo"></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-              aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse reverse-elements" id="navbarSupportedContent">
-        <div class="search-form">
-          <div class="input-form">
-            <div class="select-city">
-              <div class="select__city">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="/"><img th:src="@{/image.screen/logo.svg}" alt="Logo"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse reverse-elements" id="navbarSupportedContent">
+                <div class="search-form">
+                    <div class="input-form">
+                        <div class="select-city">
+                            <div class="select__city">
                                     <span class="location-icon"><i
                                             class="fa-solid fa-location-dot text-pink"></i></span>
-                <span class="shorthand-city text-black">HCM</span>
-                <span class="down-icon"><i class="fa-solid fa-chevron-down text-pink"></i></span>
-              </div>
+                                <span class="shorthand-city text-black">HCM</span>
+                                <span class="down-icon"><i class="fa-solid fa-chevron-down text-pink"></i></span>
+                            </div>
+                        </div>
+                        <form class="input-search" action="#" method="post">
+                            <input type="text" class="input_search"
+                                   placeholder="Tìm kiếm theo địa điểm, quận, tên đường...">
+                            <div class="icon-search">
+                                <button type="submit" class="btn-search" title=""><i
+                                        class="fa-solid fa-magnifying-glass text-pink"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="dropdown-city-hidden">
+                        <span class="location-city" value="HCM">Hồ Chí Minh</span>
+                        <span class="location-city" value="HN">Hà Nội</span>
+                    </div>
+                </div>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link text-white fw-bold fs-5 hv-underline" aria-current="page"
+                           href="#">Blog</a>
+                    </li>
+                    <li class="nav-item ps-xl-3">
+                        <a class="nav-link text-white fw-bold fs-5 hv-underline" href="#">Đăng phòng</a>
+                    </li>
+                </ul>
             </div>
-            <form class="input-search" action="#" method="post">
-              <input type="text" class="input_search"
-                     placeholder="Tìm kiếm theo địa điểm, quận, tên đường...">
-              <div class="icon-search">
-                <button type="submit" class="btn-search" title=""><i
-                        class="fa-solid fa-magnifying-glass text-pink"></i></button>
-              </div>
-            </form>
-          </div>
-          <div class="dropdown-city-hidden">
-            <span class="location-city" value="HCM">Hồ Chí Minh</span>
-            <span class="location-city" value="HN">Hà Nội</span>
-          </div>
         </div>
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link text-white fw-bold fs-5 hv-underline" aria-current="page"
-               href="#">Blog</a>
-          </li>
-          <li class="nav-item ps-xl-3">
-            <a class="nav-link text-white fw-bold fs-5 hv-underline" href="#">Đăng phòng</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+    </nav>
 </header>
 <!-- list room-->
 <div class="mt-5">
-  <div class="container d-flex justify-content-between list">
-    <div class="verified bg-white list-room">
-      <div class="d-flex justify-content-between p-4">
-        <div class="d-flex justify-content-center align-items-center">
-          <h3 class="fs-4 heading-verified fw-bold">Bộ lọc</h3>
-        </div>
-        <a class="view_all" href="#">
-          <div class="view-all">
-            <span>Áp dụng</span>
-          </div>
-        </a>
-      </div>
-      <div>
-        <div class="filter-item p-4">
-          <div class="filter_item">
-            <span class="filter_item_spec fs-4">Tiệc ích</span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </div>
-          <div class="draggable-item">
-            <div class="draggable__item">
-              <div aria-disabled="false" class="input-range"><span
-                      class="input-range__label input-range__label--min"><span
-                      class="input-range__label-container">0 tr</span></span>
-                <div class="input-range__track input-range__track--background">
-                  <div class="input-range__track input-range__track--active"
-                       style="left: 0%; width: 100%;"></div><span
-                        class="input-range__slider-container"
-                        style="position: absolute; left: 0%;"><span
-                        class="input-range__label input-range__label--value"><span
-                        class="input-range__label-container">0 tr</span></span>
-                                            <div aria-valuemax="15" aria-valuemin="0" aria-valuenow="0"
-                                                 class="input-range__slider" draggable="false" role="slider"
-                                                 tabindex="0"></div>
-                                        </span><span class="input-range__slider-container"
-                                                     style="position: absolute; left: 100%;"><span
-                        class="input-range__label input-range__label--value"><span
-                        class="input-range__label-container">15 tr+</span></span>
-                                            <div aria-valuemax="15" aria-valuemin="0" aria-valuenow="15"
-                                                 class="input-range__slider" draggable="false" role="slider"
-                                                 tabindex="0"></div>
-                                        </span>
-                </div><span class="input-range__label input-range__label--max"><span
-                        class="input-range__label-container">15 tr+</span></span>
-              </div>
+    <div class="container d-flex justify-content-between list">
+        <div class="verified bg-white list-room">
+            <div class="d-flex justify-content-between p-4">
+                <div class="d-flex justify-content-center align-items-center">
+                    <h3 class="fs-4 heading-verified fw-bold">Bộ lọc</h3>
+                </div>
+                <a class="view_all" href="#">
+                    <div class="view-all">
+                        <span>Áp dụng</span>
+                    </div>
+                </a>
             </div>
-          </div>
-        </div>
-        <div class="filter-item p-4">
-          <div class="filter_item">
-            <span class="filter_item_spec fs-4">Loại phòng</span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </div>
-          <div class="draggable-item">
-            <div class="draggable__item">
-              <div aria-disabled="false" class="input-range"><span
-                      class="input-range__label input-range__label--min"><span
-                      class="input-range__label-container">0 tr</span></span>
-                <div class="input-range__track input-range__track--background">
-                  <div class="input-range__track input-range__track--active"
-                       style="left: 0%; width: 100%;"></div><span
-                        class="input-range__slider-container"
-                        style="position: absolute; left: 0%;"><span
-                        class="input-range__label input-range__label--value"><span
-                        class="input-range__label-container">0 tr</span></span>
-                                            <div aria-valuemax="15" aria-valuemin="0" aria-valuenow="0"
-                                                 class="input-range__slider" draggable="false" role="slider"
-                                                 tabindex="0"></div>
-                                        </span><span class="input-range__slider-container"
-                                                     style="position: absolute; left: 100%;"><span
-                        class="input-range__label input-range__label--value"><span
-                        class="input-range__label-container">15 tr+</span></span>
-                                            <div aria-valuemax="15" aria-valuemin="0" aria-valuenow="15"
-                                                 class="input-range__slider" draggable="false" role="slider"
-                                                 tabindex="0"></div>
-                                        </span>
-                </div><span class="input-range__label input-range__label--max"><span
-                        class="input-range__label-container">15 tr+</span></span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="filter-item p-4">
-          <div class="filter_item">
-            <span class="filter_item_spec fs-4">Giới tính</span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </div>
-          <div class="draggable-item">
-            <div class="draggable__item">
-              <div aria-disabled="false" class="input-range"><span
-                      class="input-range__label input-range__label--min"><span
-                      class="input-range__label-container">0 tr</span></span>
-                <div class="input-range__track input-range__track--background">
-                  <div class="input-range__track input-range__track--active"
-                       style="left: 0%; width: 100%;"></div><span
-                        class="input-range__slider-container"
-                        style="position: absolute; left: 0%;"><span
-                        class="input-range__label input-range__label--value"><span
-                        class="input-range__label-container">0 tr</span></span>
-                                            <div aria-valuemax="15" aria-valuemin="0" aria-valuenow="0"
-                                                 class="input-range__slider" draggable="false" role="slider"
-                                                 tabindex="0"></div>
-                                        </span><span class="input-range__slider-container"
-                                                     style="position: absolute; left: 100%;"><span
-                        class="input-range__label input-range__label--value"><span
-                        class="input-range__label-container">15 tr+</span></span>
-                                            <div aria-valuemax="15" aria-valuemin="0" aria-valuenow="15"
-                                                 class="input-range__slider" draggable="false" role="slider"
-                                                 tabindex="0"></div>
-                                        </span>
-                </div><span class="input-range__label input-range__label--max"><span
-                        class="input-range__label-container">15 tr+</span></span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="filter-item p-4">
-          <div class="filter_item">
-            <span class="filter_item_spec fs-4">Giá</span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </div>
-          <div class="draggable-item">
-            <div class="draggable__item">
-              <div aria-disabled="false" class="input-range"><span
-                      class="input-range__label input-range__label--min"><span
-                      class="input-range__label-container">0 tr</span></span>
-                <div class="input-range__track input-range__track--background">
-                  <div class="input-range__track input-range__track--active"
-                       style="left: 0%; width: 100%;"></div><span
-                        class="input-range__slider-container"
-                        style="position: absolute; left: 0%;"><span
-                        class="input-range__label input-range__label--value"><span
-                        class="input-range__label-container">0 tr</span></span>
-                                            <div aria-valuemax="15" aria-valuemin="0" aria-valuenow="0"
-                                                 class="input-range__slider" draggable="false" role="slider"
-                                                 tabindex="0"></div>
-                                        </span><span class="input-range__slider-container"
-                                                     style="position: absolute; left: 100%;"><span
-                        class="input-range__label input-range__label--value"><span
-                        class="input-range__label-container">15 tr+</span></span>
-                                            <div aria-valuemax="15" aria-valuemin="0" aria-valuenow="15"
-                                                 class="input-range__slider" draggable="false" role="slider"
-                                                 tabindex="0"></div>
-                                        </span>
-                </div><span class="input-range__label input-range__label--max"><span
-                        class="input-range__label-container">15 tr+</span></span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="d-flex justify-content-center align-item-center pt-3">
-        <a href="#" style="color: #4877f8;" class="fs-5 pb-3">
-          Áp dụng
-        </a>
-      </div>
-    </div>
-    <div class="not-verify bg-white list-room p-4">
-      <div class="d-flex align-item-center justify-content-between mb-xl-4 mb-sm-3">
-        <h3 class="text-black fs-2 fw-bold">Phòng mới nhất</h3>
-        <a class="view_all" href="#">
-          <div class="view-all">
-            <span>Xem tất cả</span>
-          </div>
-        </a>
-      </div>
-      <ul class="room-items">
-        <li class="room__items d-flex justify-content-between g-1">
-          <div class="room__items-img">
-            <img src="../static/image.screen/room.JPG" alt="Room">
-          </div>
-          <div class="room__items-descrition">
-            <a href="#">
-              <h4 class="room_heading">Phòng cho thuê Đường Phạm Hùng, Quận Cầu Giấy</h4>
-            </a>
-            <div class="room_spec">
-              <div class="room_spec_title">
-                <div class="d-flex align-items-center my-1">
-                  <i class="fa-solid fa-house me-2 text-sub"></i>
-                  <p class="text-sub">Phòng cho thuê</p>
-                </div>
-                <div class="gender-type-room">
-                  <div class="d-flex align-items-center my-1">
-                    <i class="fa-solid fa-person me_2 text-sub"></i>
-                    <p class="text-sub">Nam & Nữ</p>
-                  </div>
-                  <div class="d-flex align-items-center my-1">
-                    <i class="fa-solid fa-ruler me_3 text-sub"></i>
-                    <p class="text-sub">35m<sup>2</sup></p>
-                  </div>
-                  <div class="d-flex align-items-center my-1">
-                    <i class="fa-solid fa-location-dot me_4 text-sub"></i>
-                    <p class="text-sub">173 Đường Phạm Hùng, Phường Trung Hoà, Quận Cầu Giấy, Hà
-                      Nội
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="room_price">
-                <span>5</span>
-                <span>tr/phòng</span>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li class="room__items d-flex justify-content-between g-1">
-          <div class="room__items-img">
-            <img src="../static/image.screen/room.JPG" alt="Room">
-          </div>
-          <div class="room__items-descrition">
-            <a href="#">
-              <h4 class="room_heading">Phòng cho thuê Đường Phạm Hùng, Quận Cầu Giấy</h4>
-            </a>
-            <div class="room_spec">
-              <div class="room_spec_title">
-                <div class="d-flex align-items-center my-1">
-                  <i class="fa-solid fa-house me-2 text-sub"></i>
-                  <p class="text-sub">Phòng cho thuê</p>
-                </div>
-                <div class="gender-type-room">
-                  <div class="d-flex align-items-center my-1">
-                    <i class="fa-solid fa-person me_2 text-sub"></i>
-                    <p class="text-sub">Nam & Nữ</p>
-                  </div>
-                  <div class="d-flex align-items-center my-1">
-                    <i class="fa-solid fa-ruler me_3 text-sub"></i>
-                    <p class="text-sub">35m<sup>2</sup></p>
-                  </div>
-                  <div class="d-flex align-items-center my-1">
-                    <i class="fa-solid fa-location-dot me_4 text-sub"></i>
-                    <p class="text-sub">173 Đường Phạm Hùng, Phường Trung Hoà, Quận Cầu Giấy, Hà
-                      Nội
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="room_price">
-                <span>5</span>
-                <span>tr/phòng</span>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li class="room__items d-flex justify-content-between g-1">
-          <div class="room__items-img">
-            <img src="../static/image.screen/room.JPG" alt="Room">
-          </div>
-          <div class="room__items-descrition">
-            <a href="#">
-              <h4 class="room_heading">Phòng cho thuê Đường Phạm Hùng, Quận Cầu Giấy</h4>
-            </a>
-            <div class="room_spec">
-              <div class="room_spec_title">
-                <div class="d-flex align-items-center my-1">
-                  <i class="fa-solid fa-house me-2 text-sub"></i>
-                  <p class="text-sub">Phòng cho thuê</p>
-                </div>
-                <div class="gender-type-room">
-                  <div class="d-flex align-items-center my-1">
-                    <i class="fa-solid fa-person me_2 text-sub"></i>
-                    <p class="text-sub">Nam & Nữ</p>
-                  </div>
-                  <div class="d-flex align-items-center my-1">
-                    <i class="fa-solid fa-ruler me_3 text-sub"></i>
-                    <p class="text-sub">35m<sup>2</sup></p>
-                  </div>
-                  <div class="d-flex align-items-center my-1">
-                    <i class="fa-solid fa-location-dot me_4 text-sub"></i>
-                    <p class="text-sub">173 Đường Phạm Hùng, Phường Trung Hoà, Quận Cầu Giấy, Hà
-                      Nội
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="room_price">
-                <span>5</span>
-                <span>tr/phòng</span>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li class="room__items d-flex justify-content-between g-1">
-          <div class="room__items-img">
-            <img src="../static/image.screen/room.JPG" alt="Room">
-          </div>
-          <div class="room__items-descrition">
-            <a href="#">
-              <h4 class="room_heading">Phòng cho thuê Đường Phạm Hùng, Quận Cầu Giấy</h4>
-            </a>
-            <div class="room_spec">
-              <div class="room_spec_title">
-                <div class="d-flex align-items-center my-1">
-                  <i class="fa-solid fa-house me-2 text-sub"></i>
-                  <p class="text-sub">Phòng cho thuê</p>
-                </div>
-                <div class="gender-type-room">
-                  <div class="d-flex align-items-center my-1">
-                    <i class="fa-solid fa-person me_2 text-sub"></i>
-                    <p class="text-sub">Nam & Nữ</p>
-                  </div>
-                  <div class="d-flex align-items-center my-1">
-                    <i class="fa-solid fa-ruler me_3 text-sub"></i>
-                    <p class="text-sub">35m<sup>2</sup></p>
-                  </div>
-                  <div class="d-flex align-items-center my-1">
-                    <i class="fa-solid fa-location-dot me_4 text-sub"></i>
-                    <p class="text-sub">173 Đường Phạm Hùng, Phường Trung Hoà, Quận Cầu Giấy, Hà
-                      Nội
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="room_price">
-                <span>5</span>
-                <span>tr/phòng</span>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li class="room__items d-flex justify-content-between g-1">
-          <div class="room__items-img">
-            <img src="../static/image.screen/room.JPG" alt="Room">
-          </div>
-          <div class="room__items-descrition">
-            <a href="#">
-              <h4 class="room_heading">Phòng cho thuê Đường Phạm Hùng, Quận Cầu Giấy</h4>
-            </a>
-            <div class="room_spec">
-              <div class="room_spec_title">
-                <div class="d-flex align-items-center my-1">
-                  <i class="fa-solid fa-house me-2 text-sub"></i>
-                  <p class="text-sub">Phòng cho thuê</p>
-                </div>
-                <div class="gender-type-room">
-                  <div class="d-flex align-items-center my-1">
-                    <i class="fa-solid fa-person me_2 text-sub"></i>
-                    <p class="text-sub">Nam & Nữ</p>
-                  </div>
-                  <div class="d-flex align-items-center my-1">
-                    <i class="fa-solid fa-ruler me_3 text-sub"></i>
-                    <p class="text-sub">35m<sup>2</sup></p>
-                  </div>
-                  <div class="d-flex align-items-center my-1">
-                    <i class="fa-solid fa-location-dot me_4 text-sub"></i>
-                    <p class="text-sub">173 Đường Phạm Hùng, Phường Trung Hoà, Quận Cầu Giấy, Hà
-                      Nội
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="room_price">
-                <span>5</span>
-                <span>tr/phòng</span>
-              </div>
-            </div>
-          </div>
-        </li>
+            <div>
+                <div class="filter-item p-4">
+                    <div class="filter_item">
+                        <span class="filter_item_spec fs-4">Tiệc ích</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="draggable-item">
+                        <div class="draggable__item">
+                            <div aria-disabled="false" class="input-range"><span
+                                    class="input-range__label input-range__label--min"><span
+                                    class="input-range__label-container">0 tr</span></span>
+                                <div class="input-range__track input-range__track--background">
+                                    <div class="input-range__track input-range__track--active"
+                                         style="left: 0%; width: 100%;"></div>
+                                    <span
 
-      </ul>
-      <nav aria-label="Page navigation example" class="mt-4" th:if="${houseDto.totalPages > 0}">
-        <ul class="pagination justify-content-center">
-          <li class="page-item disabled" th:class="${houseDto.currentPage == 0 ? 'disabled' : ''}">
-            <a class="page-link" th:href="@{/house/${houseDto.currentPage - 1}}" tabindex="-1" aria-disabled="${houseDto.currentPage == 0}">Previous</a>
-          </li>
-          <li class="page-item" th:each="pageNumber : ${#numbers.sequence(0, houseDto.totalPages - 1)}">
-            <a class="page-link" th:href="@{/house/${pageNumber * 10}}" th:text="${pageNumber + 1}"></a>
-          </li>
-          <li class="page-item" th:class="${houseDto.currentPage == houseDto.totalPages - 1 ? 'disabled' : ''}">
-            <a class="page-link" th:href="@{/house/${houseDto.currentPage + 1}}">Next</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
+                                            class="input-range__slider-container"
+                                            style="position: absolute; left: 0%;"><span
+                                            class="input-range__label input-range__label--value"><span
+                                            class="input-range__label-container">0 tr</span></span>
+                                            <div aria-valuemax="15" aria-valuemin="0" aria-valuenow="0"
+                                                 class="input-range__slider" draggable="false" role="slider"
+                                                 tabindex="0"></div>
+                                        </span><span class="input-range__slider-container"
+                                                     style="position: absolute; left: 100%;"><span
+                                        class="input-range__label input-range__label--value"><span
+                                        class="input-range__label-container">15 tr+</span></span>
+                                            <div aria-valuemax="15" aria-valuemin="0" aria-valuenow="15"
+                                                 class="input-range__slider" draggable="false" role="slider"
+                                                 tabindex="0"></div>
+                                        </span>
+                                </div>
+                                <span class="input-range__label input-range__label--max"><span
+                                        class="input-range__label-container">15 tr+</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="filter-item p-4">
+                    <div class="filter_item">
+                        <span class="filter_item_spec fs-4">Loại phòng</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="draggable-item">
+                        <div class="draggable__item">
+                            <div aria-disabled="false" class="input-range"><span
+                                    class="input-range__label input-range__label--min"><span
+                                    class="input-range__label-container">0 tr</span></span>
+                                <div class="input-range__track input-range__track--background">
+                                    <div class="input-range__track input-range__track--active"
+                                         style="left: 0%; width: 100%;"></div>
+                                    <span
+                                            class="input-range__slider-container"
+                                            style="position: absolute; left: 0%;"><span
+                                            class="input-range__label input-range__label--value"><span
+                                            class="input-range__label-container">0 tr</span></span>
+                                            <div aria-valuemax="15" aria-valuemin="0" aria-valuenow="0"
+                                                 class="input-range__slider" draggable="false" role="slider"
+                                                 tabindex="0"></div>
+                                        </span><span class="input-range__slider-container"
+                                                     style="position: absolute; left: 100%;"><span
+                                        class="input-range__label input-range__label--value"><span
+                                        class="input-range__label-container">15 tr+</span></span>
+                                            <div aria-valuemax="15" aria-valuemin="0" aria-valuenow="15"
+                                                 class="input-range__slider" draggable="false" role="slider"
+                                                 tabindex="0"></div>
+                                        </span>
+                                </div>
+                                <span class="input-range__label input-range__label--max"><span
+                                        class="input-range__label-container">15 tr+</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="filter-item p-4">
+                    <div class="filter_item">
+                        <span class="filter_item_spec fs-4">Giới tính</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="draggable-item">
+                        <div class="draggable__item">
+                            <div aria-disabled="false" class="input-range"><span
+                                    class="input-range__label input-range__label--min"><span
+                                    class="input-range__label-container">0 tr</span></span>
+                                <div class="input-range__track input-range__track--background">
+                                    <div class="input-range__track input-range__track--active"
+                                         style="left: 0%; width: 100%;"></div>
+                                    <span
+                                            class="input-range__slider-container"
+                                            style="position: absolute; left: 0%;"><span
+                                            class="input-range__label input-range__label--value"><span
+                                            class="input-range__label-container">0 tr</span></span>
+                                            <div aria-valuemax="15" aria-valuemin="0" aria-valuenow="0"
+                                                 class="input-range__slider" draggable="false" role="slider"
+                                                 tabindex="0"></div>
+                                        </span><span class="input-range__slider-container"
+                                                     style="position: absolute; left: 100%;"><span
+                                        class="input-range__label input-range__label--value"><span
+                                        class="input-range__label-container">15 tr+</span></span>
+                                            <div aria-valuemax="15" aria-valuemin="0" aria-valuenow="15"
+                                                 class="input-range__slider" draggable="false" role="slider"
+                                                 tabindex="0"></div>
+                                        </span>
+                                </div>
+                                <span class="input-range__label input-range__label--max"><span
+                                        class="input-range__label-container">15 tr+</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="filter-item p-4">
+                    <div class="filter_item">
+                        <span class="filter_item_spec fs-4">Giá</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="draggable-item">
+                        <div class="draggable__item">
+                            <div aria-disabled="false" class="input-range"><span
+                                    class="input-range__label input-range__label--min"><span
+                                    class="input-range__label-container">0 tr</span></span>
+                                <div class="input-range__track input-range__track--background">
+                                    <div class="input-range__track input-range__track--active"
+                                         style="left: 0%; width: 100%;"></div>
+                                    <span
+                                            class="input-range__slider-container"
+                                            style="position: absolute; left: 0%;"><span
+                                            class="input-range__label input-range__label--value"><span
+                                            class="input-range__label-container">0 tr</span></span>
+                                            <div aria-valuemax="15" aria-valuemin="0" aria-valuenow="0"
+                                                 class="input-range__slider" draggable="false" role="slider"
+                                                 tabindex="0"></div>
+                                        </span><span class="input-range__slider-container"
+                                                     style="position: absolute; left: 100%;"><span
+                                        class="input-range__label input-range__label--value"><span
+                                        class="input-range__label-container">15 tr+</span></span>
+                                            <div aria-valuemax="15" aria-valuemin="0" aria-valuenow="15"
+                                                 class="input-range__slider" draggable="false" role="slider"
+                                                 tabindex="0"></div>
+                                        </span>
+                                </div>
+                                <span class="input-range__label input-range__label--max"><span
+                                        class="input-range__label-container">15 tr+</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center align-item-center pt-3">
+                <a href="#" style="color: #4877f8;" class="fs-5 pb-3">
+                    Áp dụng
+                </a>
+            </div>
+        </div>
+        <div class="not-verify bg-white list-room p-4">
+            <div class="d-flex align-item-center justify-content-between mb-xl-4 mb-sm-3">
+                <h3 class="text-black fs-2 fw-bold">Phòng mới nhất</h3>
+                <a class="view_all" href="#">
+                    <div class="view-all">
+                        <span>Xem tất cả</span>
+                    </div>
+                </a>
+            </div>
+            <ul class="room-items">
+                <li th:each="house: ${houses}" class="room__items d-flex justify-content-between g-1">
+                    <div class="room__items-img">
+                        <img th:src="@{'/images/house/' + ${house.id} + '/img1.png'}" alt="Room">
+                    </div>
+                    <div class="room__items-descrition">
+                        <a th:href="@{/houses/{houseId}(houseId=${house.id})}">
+                            <h4 class="room_heading" th:text="${house.name}"/>
+                        </a>
+                        <div class="room_spec">
+                            <div class="room_spec_title">
+                                <div class="d-flex align-items-center my-1">
+                                    <i class="fa-solid fa-house me-2 text-sub"></i>
+                                    <p class="text-sub" th:text="${house.type}"/>
+                                </div>
+                                <div class="gender-type-room">
+                                    <div class="d-flex align-items-center my-1">
+                                        <i class="fa-solid fa-person me_2 text-sub"></i>
+                                        <p class="text-sub" th:text="${house.tenantGender}"/>
+                                    </div>
+                                    <div class="d-flex align-items-center my-1">
+                                        <i class="fa-solid fa-ruler me_3 text-sub"></i>
+                                        <p class="text-sub"><a th:text="${house.area} + m"/><sup>2</sup></p>
+                                    </div>
+                                    <div class="d-flex align-items-center my-1">
+                                        <i class="fa-solid fa-location-dot me_4 text-sub"></i>
+                                        <p class="text-sub" th:text="${house.address}"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="room_price">
+                                <span th:text="${house.basePrice} / 1000000"/>
+                                <span>tr/phòng</span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <nav aria-label="Page navigation example" class="mt-4" th:if="${totalPages > 0}">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item disabled" th:class="${currentPage == 0 ? 'disabled' : ''}">
+                        <a class="page-link" th:href="@{/houselist/{pageNumber}(pageNumber=${currentPage - 1})}"
+                           tabindex="-1" aria-disabled="${currentPage == 0}">Previous</a>
+                    </li>
+                    <li class="page-item" th:each="pageNumber : ${#numbers.sequence(0, totalPages - 1)}">
+                        <a class="page-link" th:href="@{/houselist/{pageNumber}(pageNumber=${pageNumber})}"
+                           th:text="${pageNumber + 1}"></a>
+                    </li>
+                    <li class="page-item" th:class="${currentPage == totalPages - 1 ? 'disabled' : ''}">
+                        <a class="page-link"
+                           th:href="@{/houselist/{pageNumber}(pageNumber=${currentPage + 1})}">Next</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
 
-  </div>
+    </div>
 </div>
 <footer class="mt-4 bg-white">
-  <div class="container">
-    <div class="last-logo d-flex justify-content-between align-items-center py-4">
-      <div>
-        <img src="../static/image.screen/footer-logo.svg" alt="Footer Logo">
-      </div>
-      <div>
-        <img class="me-3 ggp" src="../static/image.screen/appstore.png" alt="appstore" width="150" height="60">
-        <img class="ggp" src="../static/image.screen/googlePlay.png" alt="googlePlay" width="150" height="60">
-      </div>
-    </div>
-    <div class="d-flex justify-content-between align-items-center py-3">
-      <a class="cs" href="#" target="_blank"><span>Điều khoản và chính sách</span></a>
-      <div><span>Copyright © DOONG.CO PTE. LTD - 2018 All Rights Reserved</span></div>
-    </div>
+    <div class="container">
+        <div class="last-logo d-flex justify-content-between align-items-center py-4">
+            <div>
+                <img th:src="@{/image.screen/footer-logo.svg}" alt="Footer Logo">
+            </div>
+            <div>
+                <img class="me-3 ggp" th:src="@{/image.screen/appstore.png}" alt="appstore" width="150" height="60">
+                <img class="ggp" th:src="@{/image.screen/googlePlay.png}" alt="googlePlay" width="150" height="60">
+            </div>
+        </div>
+        <div class="d-flex justify-content-between align-items-center py-3">
+            <a class="cs" href="#" target="_blank"><span>Điều khoản và chính sách</span></a>
+            <div><span>Copyright © DOONG.CO PTE. LTD - 2018 All Rights Reserved</span></div>
+        </div>
 
-  </div>
+    </div>
 </footer>
 <div>
-  <div id="up-top">
-    <i class="fa-solid fa-chevron-up"></i>
-  </div>
+    <div id="up-top">
+        <i class="fa-solid fa-chevron-up"></i>
+    </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"
         integrity="sha512-3dZ9wIrMMij8rOH7X3kLfXAzwtcHpuYpEgQg1OA4QAob1e81H8ntUQmQm3pBudqIoySO5j0tHN4ENzA6+n2r4w=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script type="text/javascript" src="/js/script.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
 </body>
 
 </html>

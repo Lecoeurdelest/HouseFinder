@@ -11,7 +11,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserDto {
+public class UserReqDto {
     @NotEmpty
     private String userName;
     @NotEmpty(message = "Password should not be empty")
