@@ -289,16 +289,16 @@
             <nav aria-label="Page navigation example" class="mt-4" th:if="${totalPages > 0}">
                 <ul class="pagination justify-content-center">
                     <li class="page-item disabled" th:class="${currentPage == 0 ? 'disabled' : ''}">
-                        <a class="page-link" th:href="@{/houselist/{pageNumber}(pageNumber=${currentPage - 1})}"
+                        <a class="page-link" th:href="@{/houses/houselist/{pageNumber}(pageNumber=${currentPage - 1})}"
                            tabindex="-1" aria-disabled="${currentPage == 0}">Previous</a>
                     </li>
                     <li class="page-item" th:each="pageNumber : ${#numbers.sequence(0, totalPages - 1)}">
-                        <a class="page-link" th:href="@{/houselist/{pageNumber}(pageNumber=${pageNumber})}"
+                        <a class="page-link" th:href="@{/houses/houselist/{pageNumber}(pageNumber=${pageNumber})}"
                            th:text="${pageNumber + 1}"></a>
                     </li>
                     <li class="page-item" th:class="${currentPage == totalPages - 1 ? 'disabled' : ''}">
                         <a class="page-link"
-                           th:href="@{/houselist/{pageNumber}(pageNumber=${currentPage + 1})}">Next</a>
+                           th:href="@{/houses/houselist/{pageNumber}(pageNumber=${currentPage + 1})}">Next</a>
                     </li>
                 </ul>
             </nav>
