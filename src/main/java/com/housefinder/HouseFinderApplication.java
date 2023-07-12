@@ -27,7 +27,7 @@ public class HouseFinderApplication {
 		ImageRepository imageRepo = context.getBean(ImageRepository.class);
 		HouseRepository houseRepo = context.getBean(HouseRepository.class);
 
-		addData(userRepo, utilityRepo, imageRepo, houseRepo);
+		//addData(userRepo, utilityRepo, imageRepo, houseRepo);
 	}
 	public static void addData(UserRepository userRepo, UtilityRepository utilityRepo, ImageRepository imageRepo, HouseRepository houseRepo){
 		addUser(userRepo);
@@ -285,7 +285,7 @@ public class HouseFinderApplication {
 		Image i6h12 = imageRepo.findById(59L).get();
 
 		//house 1
-		House BacKhuong = new House("Tro bac Khuong", "Apartment", 20, "Thon 4", landlord, 2000000, 2000000, 3000, 50000,100000, 2, "Male/Female");
+		House BacKhuong = new House("Trọ bác Khương", "Apartment", 20, "Thôn 4, Thạch Hòa, Thạch Thất, Hà Nội", landlord, 2000000, 2000000, 3000, 50000,100000, 2, "Male/Female");
 		BacKhuong.add(AirConditioner);
 		BacKhuong.add(Desk);
 		BacKhuong.add(WaterHeater);

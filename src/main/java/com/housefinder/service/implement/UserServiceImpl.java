@@ -1,7 +1,7 @@
 package com.housefinder.service.implement;
 
 import com.housefinder.entity.User;
-import com.housefinder.dto.UserDto;
+import com.housefinder.dto.UserReqDto;
 import com.housefinder.repository.UserRepository;
 import com.housefinder.service.UserService;
 import lombok.AllArgsConstructor;
@@ -23,13 +23,13 @@ public class UserServiceImpl implements UserService {
     private JavaMailSender javaMailSender;
 
     @Override
-    public void saveUser(UserDto userDto) {
+    public void saveUser(UserReqDto userReqDto) {
         User user = new User();
-        user.setUserName(userDto.getUserName());
-        user.setPassword(passwordEncoder.encode(userDto.getPassword()));
-        user.setEmail(userDto.getEmail());
-        user.setPhone(userDto.getPhone());
-        user.setGender(userDto.getGender());
+        user.setUserName(userReqDto.getUserName());
+        user.setPassword(passwordEncoder.encode(userReqDto.getPassword()));
+        user.setEmail(userReqDto.getEmail());
+        user.setPhone(userReqDto.getPhone());
+        user.setGender(userReqDto.getGender());
         userRepository.save(user);
     }
 
@@ -55,11 +55,11 @@ public class UserServiceImpl implements UserService {
         }
     }
 
-    private UserDto mapToUserDto(User user) {
-        UserDto userDto = new UserDto();
-        userDto.setUserName(user.getUserName());
-        userDto.setEmail(user.getEmail());
-        return userDto;
+    private UserReqDto mapToUserDto(User user) {
+        UserReqDto userReqDto = new UserReqDto();
+        userReqDto.setUserName(user.getUserName());
+        userReqDto.setEmail(user.getEmail());
+        return userReqDto;
     }
 
     private String generateRandomPassword() {
@@ -67,7 +67,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<UserDto> findAllUser() {
+    public List<UserReqDto> findAllUser() {
         List<User> users = userRepository.findAll();
         return users.stream().map(
                         this::mapToUserDto)

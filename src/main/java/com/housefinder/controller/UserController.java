@@ -1,7 +1,7 @@
 package com.housefinder.controller;
 
 import com.housefinder.entity.User;
-import com.housefinder.dto.UserDto;
+import com.housefinder.dto.UserReqDto;
 import com.housefinder.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,7 +23,7 @@ public class UserController {
 
     @GetMapping("/register")
     public String showRegisterForm(Model model) {
-        model.addAttribute("user", new UserDto());
+        model.addAttribute("user", new UserReqDto());
         return "register";
     }
 
@@ -32,18 +32,18 @@ public class UserController {
     }
 
     @PostMapping("/register/save")
-    public String processRegister(@Validated @ModelAttribute("user") UserDto userDto, BindingResult result, Model model) {
+    public String processRegister(@Validated @ModelAttribute("user") UserReqDto userReqDto, BindingResult result, Model model) {
 
-        User user = userService.findByEmail(userDto.getEmail());
+        User user = userService.findByEmail(userReqDto.getEmail());
 
         if (user != null && user.getEmail() != null && !user.getEmail().isEmpty()) {
             result.rejectValue("email", null, "There is already an account registered with the same email");
         }
         if (result.hasErrors()) {
-            model.addAttribute("user", userDto);
+            model.addAttribute("user", userReqDto);
             return "redirect:/register";
         }
-        userService.saveUser(userDto);
+        userService.saveUser(userReqDto);
         return "redirect:/login";
     }
 
