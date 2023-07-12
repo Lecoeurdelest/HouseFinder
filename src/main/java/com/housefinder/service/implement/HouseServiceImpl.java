@@ -1,6 +1,5 @@
 package com.housefinder.service.implement;
 
-import com.housefinder.dto.HouseDto;
 import com.housefinder.entity.House;
 import com.housefinder.repository.HouseRepository;
 import com.housefinder.service.HouseService;
@@ -10,7 +9,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -24,9 +22,11 @@ public class HouseServiceImpl implements HouseService {
     }
 
     @Override
-    public List<House> getActiveHouses() {
+    public List<House> getActiveHouses(String currentSearch) {
         List<House> houses = houseRepository.findAll();
-        return houses.stream().filter(house -> house.getStatus().equalsIgnoreCase("active")).collect(Collectors.toList());
+        return houses.stream()
+                .filter(house -> house.getStatus().equalsIgnoreCase("active"))
+                .filter(house -> house.getAddress().toLowerCase().contains(currentSearch.toLowerCase())).collect(Collectors.toList());
     }
 
     public Page<House> getHouse(int pageNumber){

@@ -10,6 +10,7 @@ import com.housefinder.repository.ImageRepository;
 import com.housefinder.repository.UserRepository;
 import com.housefinder.repository.UtilityRepository;
 
+import com.housefinder.service.HouseService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -27,7 +28,9 @@ public class HouseFinderApplication {
 		ImageRepository imageRepo = context.getBean(ImageRepository.class);
 		HouseRepository houseRepo = context.getBean(HouseRepository.class);
 
-		//addData(userRepo, utilityRepo, imageRepo, houseRepo);
+		HouseService houseService = context.getBean(HouseService.class);
+
+
 	}
 	public static void addData(UserRepository userRepo, UtilityRepository utilityRepo, ImageRepository imageRepo, HouseRepository houseRepo){
 		addUser(userRepo);

@@ -44,8 +44,8 @@
                                 <span class="down-icon"><i class="fa-solid fa-chevron-down text-pink"></i></span>
                             </div>
                         </div>
-                        <form class="input-search" action="#" method="post">
-                            <input type="text" class="input_search"
+                        <form class="input-search" th:action="home" method="post" th:object="${currentSearch}">
+                            <input type="text" class="input_search" name="currentSearch"
                                    placeholder="Tìm kiếm theo địa điểm, quận, tên đường...">
                             <div class="icon-search">
                                 <button type="submit" class="btn-search" title=""><i
@@ -200,7 +200,7 @@
                     <i class="fa-solid fa-circle-check me-2" style="color: #4877f8"></i>
                     <h3 class="fs-4 heading-verified fw-bold">Đã xác thực</h3>
                 </div>
-                <a class="view_all" th:href="#">
+                <a class="view_all" th:href="h">
                     <div class="view-all hidden-viewall">
                         <span>Xem tất cả</span>
                     </div>
